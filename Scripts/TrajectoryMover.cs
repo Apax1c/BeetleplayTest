@@ -11,10 +11,10 @@ public class TrajectoryMover : MonoBehaviour
     private Vector3 firstPoint;
     private Vector3 lastPoint;
 
-    private void Awake()
+    private void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        FindObjectOfType<TrajectoryDrawer>().OnNewPathCreated += SetPoints;
+        TrajectoryDrawer.Instance.OnNewTrajectoryCreated += SetPoints;
         rb = GetComponent<Rigidbody>();
     }
 
