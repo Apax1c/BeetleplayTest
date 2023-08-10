@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class TrajectoryDrawer : MonoBehaviour
 {
-    private LineRenderer lineRenderer;
     private List<Vector3> points = new();       // Trajectory drawed on screen
     private List<Vector3> trajectory = new();   // Trajectory along which the card flies
 
@@ -19,7 +18,6 @@ public class TrajectoryDrawer : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        lineRenderer = GetComponent<LineRenderer>();
     }
 
     private void Update()
@@ -48,9 +46,6 @@ public class TrajectoryDrawer : MonoBehaviour
                         trajectory.Add(card.transform.position);
                     }
                     points.Add(hitInfo.point);
-
-                    //lineRenderer.positionCount = points.Count;
-                    //lineRenderer.SetPositions(points.ToArray());
                 }
             }
         }

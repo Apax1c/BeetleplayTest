@@ -16,6 +16,7 @@ public class TrajectoryMover : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         TrajectoryDrawer.Instance.OnNewTrajectoryCreated += SetPoints;
         rb = GetComponent<Rigidbody>();
+        Physics.IgnoreLayerCollision(3, 6);
     }
 
     private void SetPoints(IEnumerable<Vector3> points)

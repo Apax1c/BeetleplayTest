@@ -110,3 +110,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9372f1e6783a83742ad293de6ecde420, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slicedGemPrefab: {fileID: 3782658420463329403, guid: 179e314a1564a964ca261751ef8947df,
+    type: 3}

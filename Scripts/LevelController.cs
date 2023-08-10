@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelControll : MonoBehaviour
+public class LevelController : MonoBehaviour
 {
     public void RestartLevel()
     {
         Time.timeScale = 1f;
+        PlayerPrefs.SetInt("Score", 0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 

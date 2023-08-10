@@ -9,13 +9,15 @@ public class UIBehaviour : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelScoreText;
     [SerializeField] private TextMeshProUGUI scoreText;
     public int Score { get; private set; }
+    public int CurrentLevelScore { get; private set; }
     public int LevelMaxScore;
 
     public static UIBehaviour Instance;
     private void Awake()
     {
         Instance = this;
-        Score = 0;
+        CurrentLevelScore = 0;
+        Score = PlayerPrefs.GetInt("Score", 0);
     }
 
     private void Update()
@@ -26,13 +28,15 @@ public class UIBehaviour : MonoBehaviour
     public void AddScore()
     {
         Score++;
+        CurrentLevelScore++;
+        PlayerPrefs.SetInt("Score", Score);
     }
 
     public void LevelWin()
     {
         Time.timeScale = 0f;
         winUI.SetActive(true);
-        levelScoreText.text = "Gems scored: " + Score + "/" + LevelMaxScore;
+        levelScoreText.text = "Gems scored: " + CurrentLevelScore + "/" + LevelMaxScore;
         scoreText.gameObject.SetActive(false);
     }
 
@@ -41,5 +45,6 @@ public class UIBehaviour : MonoBehaviour
         Time.timeScale = 0f;
         loseUI.SetActive(true);
         scoreText.gameObject.SetActive(false);
+        PlayerPrefs.SetInt("Score", 0);
     }
 }
