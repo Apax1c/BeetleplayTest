@@ -49,8 +49,8 @@ public class TrajectoryDrawer : MonoBehaviour
                     }
                     points.Add(hitInfo.point);
 
-                    lineRenderer.positionCount = points.Count;
-                    lineRenderer.SetPositions(points.ToArray());
+                    //lineRenderer.positionCount = points.Count;
+                    //lineRenderer.SetPositions(points.ToArray());
                 }
             }
         }
